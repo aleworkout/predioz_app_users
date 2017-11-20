@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @shops = Shop.all
+    @shops = current_user.shops
   end
 
   def create
