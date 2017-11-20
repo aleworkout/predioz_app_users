@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
   
   before_filter :require_permission, only: :edit
   def require_permission
-    if current_user.id != Shop.find(params[:id]).user_id
+    if (current_user.id != Shop.find(params[:id]).user_id) or current_user.email != "ale@ale.cl"
       redirect_to root_path
       #Or do something else here
     end
