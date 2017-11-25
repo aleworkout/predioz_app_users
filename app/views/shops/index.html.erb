@@ -4,7 +4,7 @@
 <ul class="nav nav-pills" role="tablist">
   <li><%= link_to 'Todas las tiendas', shops_path, class: 'nav-item' %></li>
   <% @my_shops.each do |s| %>
-    <li><%= link_to "#{s.name}", controller: "shops", predio_id: "#{s.predio_id}" %></li>
+    <li><%= link_to "#{s.predio.name}", controller: "shops", predio_id: "#{s.predio_id}" %></li>
   <% end %>
 </ul>
 <br />
