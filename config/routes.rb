@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :predios
+  resources :categories
   devise_for :users
   resources :products
   resources :shops
@@ -13,5 +15,6 @@ Rails.application.routes.draw do
     get :shops
   end
   end
+  
   
 end

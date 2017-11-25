@@ -12,28 +12,13 @@
   <% end %>
   
   <div class="field">
-    <%= f.label 'Foto de la tienda' %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
     <%= f.label 'Nombre de la tienda' %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label "Saludo" %><br>
-    <%= f.text_area :greeting %>
-  </div>
-  <div class="field">
-    <%= f.label "Numero de contacto" %><br>
-    <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label "Tiene Whatsapp?" %><br>
-    <%= f.check_box :whatsapp %>
-  </div>
-  <div class="field">
-    <%= f.label "Le pueden llamar?" %><br>
-    <%= f.check_box :phone %>
+    <%= f.label "Categoria de la tienda" %><br>
+    <%= f.collection_select :category_id, @categories, :id, :name %>
   </div>
   
   <div class="actions">

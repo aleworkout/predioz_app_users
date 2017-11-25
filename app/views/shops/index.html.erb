@@ -1,34 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-    <%= search_form_for @q do |f| %>
-  
-    <%= f.label "Tienda" %>
-    <%= f.search_field :name_cont %>
-  
-    <%= f.submit "Buscar" %>
-  
-    <% end %>
-</div>
-
-<h1>Todas las Tiendas</h1>
+<h1 align="center">Edificios con tiendas disponibles</h1>
+<ul class="nav nav-pills" role="tablist">
+  <li><%= link_to "Todas las tiendas", shops_path, class: 'nav-item' %></li>
+  <% @my_shops.each do |s| %>
+    <li><%= link_to "#{s.predio.name}", controller: "shops", predio_id: "#{s.predio_id}" %></li>
+  <% end %>
+</ul>
+<br />
 <% if user_signed_in? %>
 <%= link_to "Mis Tiendas", user_shops_path(@shops), role: 'button', class: 'btn btn-success btn-xs' %>
 <% end %>
-<hr />
-<% if user_signed_in? %>
-<%= link_to 'Crear Nueva tienda', new_shop_path, role: 'button', class: 'btn btn-warning btn-block' %>
-<% end %>
+<br />
   <div class="row">
     <br />
     <% @shops.each do |shop| %>
     
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <%= image_tag(shop.image_url) if shop.image? %><br>
+          <%= link_to image_tag(shop.image_url, class: "img-responsive aspect"), shop %><br>
           <div class="caption">
             <h3><%= shop.name %></h3>
-            <p>"<%= shop.greeting %>".</p>
             <h4><%= shop.number %></h4>
             <% if shop.whatsapp %>
               <ul>
@@ -41,7 +33,6 @@
               </ul>
             <% end %>
             <p>
-            <%= link_to 'Entrar', shop, role: 'button', class: 'btn btn-success btn-sm' %>
             <% if user_signed_in? %>
             <% if current_user.id == shop.user_id or current_user.email == "ale@ale.cl" %>
               <%= link_to 'Editar', edit_shop_path(shop), role: 'button', class: 'btn btn-success btn-sm' %>
@@ -55,7 +46,6 @@
     <% end %>
   </div>
 
-<br>
-<% if user_signed_in? %>
-<%= link_to 'Crear Nueva Tienda', new_shop_path, role: 'button', class: 'btn btn-warning btn-block' %>
+<% if user_signed_in? %>  
+<%= link_to 'Crear Nueva Tienda', new_shop_path, role: 'button', class: 'navbar-fixed-bottom button button3 btn-block' %>
 <% end %>

@@ -4,10 +4,19 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @q = Shop.ransack(params[:q])
-    @shops = @q.result(distinct: true)
+   
+    #@q = Shop.ransack(params[:q])
+    #@shops = @q.result(distinct: true)
+    
+    if params[:predio_id] == nil
+      @shops = Shop.all
+    else
+      @shops = Shop.where(predio_id:params[:predio_id].titleize)
+    end 
+    
+    @my_shops = Shop.select(:predio_id).order(:predio_id).distinct
+    
   end
-  
   
   before_filter :require_permission, only: :edit
   def require_permission
@@ -39,10 +48,13 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
+    @categories = Category.all
   end
 
   # GET /shops/1/edit
   def edit
+    @categories = Category.all
+    @predios = Predio.all
   end
 
   # POST /shops
@@ -93,6 +105,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:image, :name, :greeting, :number, :whatsapp, :phone, :user_id)
+      params.require(:shop).permit(:image, :name, :greeting, :number, :whatsapp, :phone, :user_id, :predio_id, :category_id)
     end
 end

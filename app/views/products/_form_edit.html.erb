@@ -12,6 +12,15 @@
   <% end %>
   
   <div class="field">
+    <%= f.label "Foto de Producto" %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label "Descripción" %><br>
+    <%= f.text_area :detail %>
+  </div>
+  <hr />
+  <div class="field">
     <%= f.label "Nombre de producto" %><br>
     <%= f.text_field :name %>
   </div>
@@ -20,7 +29,7 @@
     <%= f.number_field :price %>
   </div>
   <div class="field">
-    <%= f.label "Escoga la tienda en la que agregará el Producto" %><br>
+    <%= f.label "Escoga la tienda en la que agregara el Producto" %><br>
     <%= f.collection_select :shop_id, @shops, :id, :name %>
   </div>
   <br />

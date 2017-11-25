@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117175849) do
+ActiveRecord::Schema.define(version: 20171124215123) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "predios", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.text     "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -31,9 +45,12 @@ ActiveRecord::Schema.define(version: 20171117175849) do
     t.boolean  "whatsapp"
     t.boolean  "phone"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "image"
+    t.boolean  "available",   default: true
+    t.integer  "category_id"
+    t.integer  "predio_id"
   end
 
   create_table "users", force: :cascade do |t|
