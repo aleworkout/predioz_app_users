@@ -74,13 +74,14 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Tiendas", shops_path %></li>
         <li><%= link_to "Productos", products_path %></li>
+        <li><%= link_to "Pagos", pagos_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><a><%= current_user.email %></a></li>
-          <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to 'Entrar', new_user_session_path %></li>
+          <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

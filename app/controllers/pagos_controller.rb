@@ -36,6 +36,7 @@ class PagosController < ApplicationController
     @pago.checked = false
     @pago.user_id = current_user.id
     @pago.email = current_user.email
+    @pago.notice_date = Date.today
     respond_to do |format|
       if @pago.save
         format.html { redirect_to @pago, notice: 'Pago was successfully created.' }
@@ -79,6 +80,6 @@ class PagosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pago_params
-      params.require(:pago).permit(:user_id, :member_id, :payment_date, :amount, :message, :checked, :predio_name, :predio_address, :email)
+      params.require(:pago).permit(:user_id, :member_id, :payment_date, :amount, :message, :checked, :predio_name, :predio_address, :email, :notice_date)
     end
 end

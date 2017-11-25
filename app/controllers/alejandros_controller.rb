@@ -5,7 +5,7 @@ class AlejandrosController < ApplicationController
   # GET /alejandros.json
   def index
     if user_signed_in? 
-      if current_user.email = "ale@ale.cl"
+      if current_user.email == "ale@ale.cl"
         @alejandros = Alejandro.all
       else
         redirect_to shops_path
@@ -24,7 +24,7 @@ class AlejandrosController < ApplicationController
   # GET /alejandros/new
   def new
     if user_signed_in? 
-      if current_user.email = "ale@ale.cl"
+      if current_user.email == "ale@ale.cl"
         @alejandro = Alejandro.new
         @members = Member.all
       else
@@ -38,7 +38,7 @@ class AlejandrosController < ApplicationController
   # GET /alejandros/1/edit
   def edit
     if user_signed_in? 
-      if current_user.email = "ale@ale.cl"
+      if current_user.email == "ale@ale.cl"
         @members = Member.all
       else
         redirect_to shops_path

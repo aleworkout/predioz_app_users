@@ -1,4 +1,4 @@
-<%= form_for(@pago) do |f| %>
+<%= form_for @pago, validate: true do |f| %>
   <% if @pago.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pago.errors.count, "error") %> prohibited this pago from being saved:</h2>
@@ -29,30 +29,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :member_id %><br>
+    <%= f.label 'Membresia' %><br>
     <%= f.collection_select :member_id, @members, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :payment_date %><br>
+    <%= f.label 'Fecha en que realizó el pago' %><br>
     <%= f.date_select :payment_date %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
+    <%= f.label 'Pago' %><br>
     <%= f.number_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
-  <div class="field">
-    <%= f.label :predio_name %><br>
+    <%= f.label 'Nombre de su edificio/condominio' %><br>
     <%= f.text_field :predio_name %>
   </div>
   <div class="field">
-    <%= f.label :predio_address %><br>
+    <%= f.label 'Dirección de su edificio/condominio' %><br>
     <%= f.text_area :predio_address %>
   </div>
+  <div class="field">
+    <%= f.label 'Mensaje' %><br>
+    <%= f.text_area :message %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Listo", class: 'button button3 btn-block', role: 'button' %>
   </div>
 <% end %>

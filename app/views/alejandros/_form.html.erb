@@ -12,30 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label 'Email único' %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :payment %><br>
+    <%= f.label 'Pago' %><br>
     <%= f.number_field :payment %>
   </div>
   <div class="field">
-    <%= f.label :payment_date %><br>
+    <%= f.label 'Fecha activación (determinada por alejandro)' %><br>
     <%= f.date_select :payment_date %>
   </div>
   <div class="field">
-    <%= f.label :due_date %><br>
+    <%= f.label 'Fecha vencimiento' %><br>
     <%= f.date_select :due_date %>
   </div>
   <div class="field">
-    <%= f.label :message %><br>
+    <%= f.label 'Mensaje (uso interno)' %><br>
     <%= f.text_area :message %>
   </div>
   <div class="field">
-    <%= f.label :member_id %><br>
+    <%= f.label 'Membresia' %><br>
     <%= f.collection_select :member_id, @members, :id, :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Listo", class: 'button button3 btn-block', role: 'button' %>
   </div>
 <% end %>

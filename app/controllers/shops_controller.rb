@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @users = Alejandro.all
+    @alejandros = Alejandro.all
     if params[:predio_id] == nil
       @shops = Shop.all
     else

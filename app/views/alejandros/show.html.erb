@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Email único:</strong>
   <%= @alejandro.email %>
 </p>
 
 <p>
-  <strong>Payment:</strong>
-  <%= @alejandro.payment %>
-</p>
-
-<p>
-  <strong>Payment date:</strong>
+  <strong>Fecha activación (determinada por alejandro):</strong>
   <%= @alejandro.payment_date %>
 </p>
 
 <p>
-  <strong>Due date:</strong>
+  <strong>Fecha vencimiento:</strong>
   <%= @alejandro.due_date %>
 </p>
 
 <p>
-  <strong>Message:</strong>
+  <strong>Mensaje (uso interno):</strong>
   <%= @alejandro.message %>
 </p>
 
 <p>
-  <strong>Id member:</strong>
-  <%= @alejandro.member_id %>
+  <strong>Membresia:</strong>
+  <%= @alejandro.member.name %>
 </p>
 
-<%= link_to 'Edit', edit_alejandro_path(@alejandro) %> |
-<%= link_to 'Back', alejandros_path %>
+<p>
+  <strong>Pago:</strong>
+  <%= @alejandro.payment %>
+</p>
+
+<%= link_to 'Edit', edit_alejandro_path(@alejandro), role: 'button', class: 'btn btn-success btn-sm' %>
+<%= link_to 'Back', alejandros_path, role: 'button', class: 'btn btn-success btn-sm' %>
