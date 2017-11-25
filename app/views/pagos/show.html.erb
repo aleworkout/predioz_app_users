@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pago.user_id %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @pago.member_id %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @pago.payment_date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @pago.amount %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @pago.message %>
+</p>
+
+<p>
+  <strong>Checked:</strong>
+  <%= @pago.checked %>
+</p>
+
+<p>
+  <strong>Predio name:</strong>
+  <%= @pago.predio_name %>
+</p>
+
+<p>
+  <strong>Predio address:</strong>
+  <%= @pago.predio_address %>
+</p>
+
+<%= link_to 'Edit', edit_pago_path(@pago) %> |
+<%= link_to 'Back', pagos_path %>

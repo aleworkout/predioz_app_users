@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @alejandro.email %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @alejandro.payment %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @alejandro.payment_date %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @alejandro.due_date %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @alejandro.message %>
+</p>
+
+<p>
+  <strong>Id member:</strong>
+  <%= @alejandro.member_id %>
+</p>
+
+<%= link_to 'Edit', edit_alejandro_path(@alejandro) %> |
+<%= link_to 'Back', alejandros_path %>

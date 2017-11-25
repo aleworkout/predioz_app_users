@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :pagos
+  resources :members
+  resources :alejandros
   resources :predios
   resources :categories
   devise_for :users
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
     get :shops
   end
   end
+  
   
   
 end

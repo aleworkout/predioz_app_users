@@ -11,12 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124215123) do
+ActiveRecord::Schema.define(version: 20171125160645) do
+
+  create_table "alejandros", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "payment"
+    t.date     "payment_date"
+    t.date     "due_date"
+    t.text     "message"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "member_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pagos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "member_id"
+    t.date     "payment_date"
+    t.integer  "amount"
+    t.text     "message"
+    t.boolean  "checked"
+    t.string   "predio_name"
+    t.text     "predio_address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "email"
   end
 
   create_table "predios", force: :cascade do |t|
@@ -67,6 +98,7 @@ ActiveRecord::Schema.define(version: 20171124215123) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.boolean  "actived",                default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

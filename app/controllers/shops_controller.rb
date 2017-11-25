@@ -4,6 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
+    @users = Alejandro.all
     if params[:predio_id] == nil
       @shops = Shop.all
     else
@@ -57,6 +58,8 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id if current_user
+    @shop.predio_id = 1
+    @shop.category_id = 1
     respond_to do |format|
       if @shop.save
         format.html { redirect_to @shop, notice: 'Tienda creada exitosamente.' }

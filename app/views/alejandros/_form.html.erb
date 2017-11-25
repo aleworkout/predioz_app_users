@@ -1,0 +1,41 @@
+<%= form_for(@alejandro) do |f| %>
+  <% if @alejandro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alejandro.errors.count, "error") %> prohibited this alejandro from being saved:</h2>
+
+      <ul>
+      <% @alejandro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :payment %><br>
+    <%= f.number_field :payment %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_date %><br>
+    <%= f.date_select :payment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.collection_select :member_id, @members, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
