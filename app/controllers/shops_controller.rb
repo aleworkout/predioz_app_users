@@ -4,10 +4,6 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-   
-    #@q = Shop.ransack(params[:q])
-    #@shops = @q.result(distinct: true)
-    
     if params[:predio_id] == nil
       @shops = Shop.all
     else
@@ -15,7 +11,6 @@ class ShopsController < ApplicationController
     end 
     
     @my_shops = Shop.select(:predio_id).order(:predio_id).distinct
-    
   end
   
   before_filter :require_permission, only: :edit
