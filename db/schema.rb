@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125195430) do
+ActiveRecord::Schema.define(version: 20171203222848) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "alejandros", force: :cascade do |t|
     t.string   "email"
@@ -22,6 +28,12 @@ ActiveRecord::Schema.define(version: 20171125195430) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "member_id"
+  end
+
+  create_table "bancos", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -49,6 +61,10 @@ ActiveRecord::Schema.define(version: 20171125195430) do
     t.datetime "updated_at",     null: false
     t.string   "email"
     t.date     "notice_date"
+    t.integer  "banco_id"
+    t.string   "account_number"
+    t.integer  "account_id"
+    t.string   "image"
   end
 
   create_table "predios", force: :cascade do |t|
@@ -68,6 +84,11 @@ ActiveRecord::Schema.define(version: 20171125195430) do
     t.integer  "shop_id"
     t.integer  "user_id"
     t.string   "image"
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shops", force: :cascade do |t|

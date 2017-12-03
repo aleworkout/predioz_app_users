@@ -31,6 +31,7 @@
   
     <% end %>
   </div>
+  <h3>productos en tienda</h3>
   <br />
 
   <div class="row">
@@ -57,7 +58,7 @@
       <% end %>
     <% end %>
   </div>
-
+<br /><br /><br />
 <% if user_signed_in? %>
 <% if current_user.id == @shop.user_id %>
 <%= link_to 'Crear un producto', new_product_path, role: 'button', class: 'navbar-fixed-bottom button button3 btn-block' %>

@@ -4,7 +4,15 @@ class PrediosController < ApplicationController
   # GET /predios
   # GET /predios.json
   def index
-    @predios = Predio.all
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @predios = Predio.all
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # GET /predios/1
@@ -14,11 +22,28 @@ class PrediosController < ApplicationController
 
   # GET /predios/new
   def new
-    @predio = Predio.new
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @predio = Predio.new
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # GET /predios/1/edit
   def edit
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @predios = Predio.all
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # POST /predios

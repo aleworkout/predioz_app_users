@@ -22,11 +22,15 @@ class PagosController < ApplicationController
   def new
     @pago = Pago.new
     @members = Member.all
+    @bancos = Banco.all
+    @cuentas = Account.all
   end
 
   # GET /pagos/1/edit
   def edit
     @members = Member.all
+    @bancos = Banco.all
+    @cuentas = Account.all    
   end
 
   # POST /pagos
@@ -80,6 +84,6 @@ class PagosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pago_params
-      params.require(:pago).permit(:user_id, :member_id, :payment_date, :amount, :message, :checked, :predio_name, :predio_address, :email, :notice_date)
+      params.require(:pago).permit(:account_number ,:banco_id, :account_id, :image, :user_id, :member_id, :payment_date, :amount, :message, :checked, :predio_name, :predio_address, :email, :notice_date)
     end
 end

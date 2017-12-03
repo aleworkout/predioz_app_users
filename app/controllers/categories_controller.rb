@@ -4,7 +4,15 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @categories = Category.all
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # GET /categories/1
@@ -14,11 +22,28 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @category = Category.new
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # GET /categories/1/edit
   def edit
+    if user_signed_in?
+      if current_user.email == "ale@ale.cl"
+        @categories = Category.all
+      else
+        redirect_to shops_path
+      end
+    else
+      redirect_to shops_path
+    end
   end
 
   # POST /categories

@@ -87,6 +87,7 @@
             
             <% if current_user.id == shop.user_id %>
               <%= link_to "Entrar", shop, role: 'button', class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Eliminar', shop, method: :delete, data: { confirm: 'Are you sure?' }, role: 'button', class: 'btn btn-success btn-sm' %>
             <% end %>  
             
             </p>

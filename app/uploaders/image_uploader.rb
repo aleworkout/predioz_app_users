@@ -3,11 +3,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :fog
     
     include CarrierWave::MiniMagick
-  
+
     process :resize_to_fit => [400, 400]
-      
+    
     def extension_white_list
-      %w(jpg jpeg png gif)
+      %w(jpg jpeg png gif pdf)
     end
     
     def fix_exif_rotation #this is my attempted solution
@@ -17,6 +17,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   
     process :fix_exif_rotation
+  
+   
   else
     storage :file
   end

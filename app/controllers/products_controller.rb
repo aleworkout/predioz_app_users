@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   
   def index
+    redirect_to shops_path
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
   end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :queries
+  resources :accounts
+  resources :bancos
   resources :pagos
   resources :members
   resources :alejandros

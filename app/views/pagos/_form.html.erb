@@ -41,6 +41,25 @@
     <%= f.number_field :amount %>
   </div>
   <div class="field">
+    <%= f.label 'Suba Comprobante del pago' %><br>
+    <%= f.file_field :image %>
+  </div>
+  <hr />
+  <h3>Rellene sólo si hizo transferencia bancaria</h3><br />
+  <div class="field">
+    <%= f.label 'Nombre de su banco' %><br>
+    <%= f.collection_select :banco_id, @bancos, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Tipo de cuenta' %><br>
+    <%= f.collection_select :account_id, @cuentas, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'N° Cuenta' %><br>
+    <%= f.number_field :account_number %>
+  </div>
+  <hr />
+  <div class="field">
     <%= f.label 'Nombre de su edificio/condominio' %><br>
     <%= f.text_field :predio_name %>
   </div>
