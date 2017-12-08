@@ -5,6 +5,7 @@
 <%= image_tag(@shop.image_url, class: "img-responsive aspect") %>
             
 <h1><%= @shop.name %></h1>
+<p><%= @shop.image_url %></p>
 <% if user_signed_in? %>
 <% if current_user.id == @shop.user_id %>
 <%= link_to 'Editar Tienda', edit_shop_path(@shop), role: 'button', class: 'btn btn-success btn-sm' %>

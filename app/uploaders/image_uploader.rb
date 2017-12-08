@@ -22,4 +22,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :file
   end
+  def default_url
+    [version_name, "default.jpg"].compact.join('_')
+  end
 end
