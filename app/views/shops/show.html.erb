@@ -5,18 +5,20 @@
 <%= image_tag(@shop.image_url, class: "img-responsive aspect") %>
             
 <h1><%= @shop.name %></h1>
-<p><%= @shop.image_url %></p>
 <% if user_signed_in? %>
 <% if current_user.id == @shop.user_id %>
 <%= link_to 'Editar Tienda', edit_shop_path(@shop), role: 'button', class: 'btn btn-success btn-sm' %>
 <% end %>
 <% end %>
+
 <% if user_signed_in? %>
-<% if @shop.number.nil? && current_user.id == @shop.user_id %>
-<h3><%= link_to "Agregar numero de contacto aquí", edit_shop_path(@shop), class: 'link'%> </h3>
-<% else %>
-<h3><%= @shop.number %></h3>
-<% end %>
+  <% if @shop.number.nil? && current_user.id == @shop.user_id %>
+  <h3><%= link_to "Agregar numero de contacto aquí", edit_shop_path(@shop), class: 'link'%> </h3>
+  <% else %>
+  <h3><%= @shop.number %></h3>
+  <% end %>
+<% else  %>
+  <h3><%= @shop.number %></h3>
 <% end %>
             <% if @shop.whatsapp %>
               <ul>
