@@ -17,12 +17,14 @@
   </div>
 
   <div class="field">
-    <%= f.label "Categoria de la tienda" %><br>
-    <%= f.collection_select :category_id, @categories, :id, :name %>
+    <%= f.label "Edificio a la que pertenece" %><br>
+    <p>(Si tu edificio no aparece envíanos un mensaje</p>
+    <%= link_to "aquí y gana membresía gratuita)", queries_path, class: 'link' %><br><br>
+    <%= f.collection_select :predio_id, @predios, :id, :name %>
   </div>
   
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary', role: 'button', class: 'btn btn-success btn-sm' %>
+    <%= f.submit "Listo", class: 'button button3 btn-block', role: 'button' %>
   </div>
   <br />
 <% end %>

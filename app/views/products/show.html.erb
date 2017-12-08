@@ -1,17 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @product.shop.name %></h1>
-<h3><%= @product.shop.number %></h3>
-            <% if @product.shop.whatsapp %>
-              <ul>
-                <li>Tenemos Whatsapp</li>
-              </ul>
-            <% end %>
-            <% if @product.shop.phone %>
-              <ul>
-                <li>Puedes llamarnos</li>
-              </ul>
-            <% end %>
             
 <div class="row">
       <div class="col-sm-6 col-md-4">
@@ -33,7 +21,9 @@
       </div>
   </div>
 
-
 <%= link_to 'Volver', products_path, role: 'button', class: 'btn btn-success btn-sm' %>
-
+<br/><br/><br/>
+<% if user_signed_in? %>  
+<%= link_to 'Crear Nuevo Producto', new_product_path, role: 'button', class: 'navbar-fixed-bottom button button3 btn-block' %>
+<% end %>
 

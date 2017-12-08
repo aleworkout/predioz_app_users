@@ -44,7 +44,7 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
-    @categories = Category.all
+    @predios = Predio.all
   end
 
   # GET /shops/1/edit
@@ -59,7 +59,6 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id if current_user
     @shop.predio_id = 1
-    @shop.category_id = 1
     respond_to do |format|
       if @shop.save
         format.html { redirect_to @shop, notice: 'Tienda creada exitosamente.' }
@@ -103,6 +102,6 @@ class ShopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shop_params
-      params.require(:shop).permit(:image, :name, :greeting, :number, :whatsapp, :phone, :user_id, :predio_id, :category_id)
+      params.require(:shop).permit(:image, :name, :greeting, :number, :whatsapp, :phone, :user_id, :predio_id, :category_id, :available)
     end
 end

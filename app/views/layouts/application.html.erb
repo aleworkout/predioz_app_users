@@ -54,6 +54,10 @@
         background-color: #4CAF50;
         color: white;
     }
+    h2.clase {  display:inline;}
+    p.otra {display:inline;
+    color: black;}
+    a.link {color: blue; text-decoration: underline;}
   </style>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -85,6 +89,7 @@
         <li><%= link_to "Pagos", pagos_path %></li>
         <li><%= link_to "Consultas", queries_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to "Crear nuevo producto", new_product_path %></li>
         <% if current_user.email == "ale@ale.cl" %>
           <li><%= link_to "Predios", predios_path %></li>
           <li><%= link_to "Categories", categories_path %></li>

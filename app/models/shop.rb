@@ -6,6 +6,8 @@ class Shop < ActiveRecord::Base
     belongs_to :predio
     mount_uploader :image, ImageUploader
     
+    validates :name, :predio_id, presence: true
+    
     def validate
         true
     end

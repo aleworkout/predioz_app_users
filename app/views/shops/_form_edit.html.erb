@@ -24,10 +24,6 @@
     <%= f.collection_select :predio_id, @predios, :id, :name %>
   </div>  
   <div class="field">
-    <%= f.label "Saludo" %><br>
-    <%= f.text_area :greeting %>
-  </div>
-  <div class="field">
     <%= f.label "Numero de contacto" %><br>
     <%= f.text_field :number %>
   </div>
@@ -49,7 +45,7 @@
   </div>
   
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary', role: 'button', class: 'btn btn-success btn-sm' %>
+    <%= f.submit "Listo", class: 'button button3 btn-block', role: 'button' %>
   </div>
   <br />
 <% end %>  

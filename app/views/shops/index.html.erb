@@ -21,7 +21,13 @@
             <div class="thumbnail">
               <%= link_to image_tag(shop.image_url, class: "img-responsive aspect"), shop %><br>
               <div class="caption">
-                <h3><%= shop.name %></h3>
+                <div class="bb">
+                  <% if shop.available %>
+                    <h2 class="clase"><span class="span"><%= shop.name %></span></h2><p class="otra">(abierta ahora)</p>
+                  <% else %>
+                    <h2 class="clase"><span class="span"><%= shop.name %></span></h2><p class="otra">(cerrada ahora)</p>
+                  <% end %>
+                </div>
                 <% if user_signed_in? %>
                   <% if current_user.email == "ale@ale.cl" %>
                     <h3><%= shop.user.email %></h3>
