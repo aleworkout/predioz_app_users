@@ -12,9 +12,9 @@
   </script>
 
   <meta charset="utf-8">
-  <title>PREDIO'S APP</title>
+  <title>PREDIOS APP</title>
 
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/amelia/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.2/united/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css">
 
   <style>
@@ -79,7 +79,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Predio's", root_path, class: 'navbar-brand' %>
+      <%= link_to "Predios App", root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,7 +89,7 @@
         <li><%= link_to "Pagos", pagos_path %></li>
         <li><%= link_to "Consultas", queries_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Crear nuevo producto", new_product_path %></li>
+        <li><%= link_to "Crear nuevo producto", new_product_path %></li>
         <% if current_user.email == "ale@ale.cl" %>
           <li><%= link_to "Predios", predios_path %></li>
           <li><%= link_to "Categories", categories_path %></li>
